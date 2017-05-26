@@ -14,6 +14,10 @@ app.get('/build/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'build/bundle.js'));
 });
 
+app.get('/build/src/styles/styles.css', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build/src/styles/styles.css'));
+});
+
 io.sockets.on('connection', (socket) => {
   var periodInMilliseconds = 2000;
   var timeoutId = -1;

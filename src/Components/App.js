@@ -1,9 +1,8 @@
 import React, {Component, Proptypes} from "react";
 import ReactDOM from  'react-dom';
-// import {Chart} from 'react-d3-core';
-// import {LineChart} from 'react-d3-basic';
-var Chart = require('react-d3-core').Chart;
-var LineChart = require('react-d3-basic').LineChart;
+import {Chart} from 'react-d3-core';
+import {LineChart} from 'react-d3-basic';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const io = require('socket.io-client');
 const socket = io();
@@ -31,8 +30,8 @@ export default class App extends Component {
 
   render() {
     try {
-      var width = 600,
-        height = 300,
+      var width = 700,
+        height = 350,
         margins = {left: 100, right: 100, top: 50, bottom: 50},
         title = "User sample",
         // chart series,
@@ -52,17 +51,64 @@ export default class App extends Component {
         };
 
         return (
-          <LineChart
-            showXGrid= {false}
-            showYGrid= {false}
-            margins= {margins}
-            title={title}
-            data={this.state.data}
-            width={width}
-            height={height}
-            chartSeries={chartSeries}
-            x={x}
-          />
+          <div>
+            <Row>
+              <Col xs>
+                <LineChart
+                  showXGrid= {false}
+                  showYGrid= {false}
+                  margins= {margins}
+                  title={title}
+                  data={this.state.data}
+                  width={width}
+                  height={height}
+                  chartSeries={chartSeries}
+                  x={x}
+                />
+              </Col>
+              <Col xs>
+                <LineChart
+                  showXGrid= {false}
+                  showYGrid= {false}
+                  margins= {margins}
+                  title={title}
+                  data={this.state.data}
+                  width={width}
+                  height={height}
+                  chartSeries={chartSeries}
+                  x={x}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col xs>
+                <LineChart
+                  showXGrid= {false}
+                  showYGrid= {false}
+                  margins= {margins}
+                  title={title}
+                  data={this.state.data}
+                  width={width}
+                  height={height}
+                  chartSeries={chartSeries}
+                  x={x}
+                />
+              </Col>
+              <Col xs>
+                <LineChart
+                  showXGrid= {false}
+                  showYGrid= {false}
+                  margins= {margins}
+                  title={title}
+                  data={this.state.data}
+                  width={width}
+                  height={height}
+                  chartSeries={chartSeries}
+                  x={x}
+                />
+              </Col>
+            </Row>
+          </div>
         );
     } catch (e) {
       // report errors...
