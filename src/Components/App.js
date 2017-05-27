@@ -12,18 +12,30 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [],
+      conversion: [],
+      errors: [],
+      latency: [],
       date: null
     };
     socket.on('server request', (payload) => this.updateDataSet(payload));
   }
 
   getInitialState() {
-    return {data: [], date: null};
+    return {
+      data: [],
+      conversion: [],
+      errors: [],
+      latency: [],
+      date: null
+    };
   }
 
   updateDataSet(data) {
     this.setState({
       data: data.value,
+      conversion: data.conversion,
+      errors: data.errors,
+      latency: data.latency,
       date: data.date
     });
   }
@@ -38,11 +50,32 @@ export default class App extends Component {
         // field: is what field your data want to be selected
         // name: the name of the field that display in legend
         // color: what color is the line
-        chartSeries = [
+        chartSeriesVisits = [
           {
             field: 'point',
-            name: 'Number of Visits',
+            name: 'Visits',
             color: '#ff7f0e'
+          }
+        ],
+        chartSeriesConversion = [
+          {
+            field: 'point',
+            name: 'Conversion',
+            color: '#4286f4'
+          }
+        ],
+        chartSeriesErrors = [
+          {
+            field: 'point',
+            name: 'Errors',
+            color: '#f44183'
+          }
+        ],
+        chartSeriesLatency = [
+          {
+            field: 'point',
+            name: 'Latency',
+            color: '#41f494'
           }
         ],
         // your x accessor
@@ -62,7 +95,7 @@ export default class App extends Component {
                   data={this.state.data}
                   width={width}
                   height={height}
-                  chartSeries={chartSeries}
+                  chartSeries={chartSeriesVisits}
                   x={x}
                 />
               </Col>
@@ -72,10 +105,10 @@ export default class App extends Component {
                   showYGrid= {false}
                   margins= {margins}
                   title={title}
-                  data={this.state.data}
+                  data={this.state.conversion}
                   width={width}
                   height={height}
-                  chartSeries={chartSeries}
+                  chartSeries={chartSeriesConversion}
                   x={x}
                 />
               </Col>
@@ -87,10 +120,10 @@ export default class App extends Component {
                   showYGrid= {false}
                   margins= {margins}
                   title={title}
-                  data={this.state.data}
+                  data={this.state.errors}
                   width={width}
                   height={height}
-                  chartSeries={chartSeries}
+                  chartSeries={chartSeriesErrors}
                   x={x}
                 />
               </Col>
@@ -100,10 +133,10 @@ export default class App extends Component {
                   showYGrid= {false}
                   margins= {margins}
                   title={title}
-                  data={this.state.data}
+                  data={this.state.latency}
                   width={width}
                   height={height}
-                  chartSeries={chartSeries}
+                  chartSeries={chartSeriesLatency}
                   x={x}
                 />
               </Col>
