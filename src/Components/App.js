@@ -4,10 +4,11 @@ import {Chart} from 'react-d3-core';
 import {LineChart} from 'react-d3-basic';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-const io = require('socket.io-client');
+import io from 'socket.io-client';
 const socket = io();
 
 export default class App extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
