@@ -15,3 +15,9 @@ npm run start
 http://localhost:3000
 ```
 
+## Upcoming
+  * Hook up the Redux Store
+  * Server data would update the Store
+  * Any changes in props for the Realtime dashboard component would trigger an update in the data points.
+
+
