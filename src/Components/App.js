@@ -83,6 +83,7 @@ export default class App extends Component {
           return d.index;
         };
 
+        console.log(" server data points = ", this.state.data);
         return (
           <div>
             <Row>
