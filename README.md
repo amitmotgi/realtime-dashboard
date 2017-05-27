@@ -1,2 +1,2 @@
 # usersperceived
-User Perceived Performance Platform across web.
+Realtime Dashboard using React, Redux, Socket.io, D3js, Express.
