@@ -88,8 +88,8 @@ export default class App extends Component {
             <Row>
               <Col xs>
                 <LineChart
-                  showXGrid= {false}
-                  showYGrid= {false}
+                  showXGrid= {true}
+                  showYGrid= {true}
                   margins= {margins}
                   title={title}
                   data={this.state.data}
