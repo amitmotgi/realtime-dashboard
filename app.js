@@ -19,7 +19,7 @@ app.get('/build/src/styles/styles.css', (req, res) => {
 });
 
 io.sockets.on('connection', (socket) => {
-  var periodInMilliseconds = 2000;
+  var periodInMilliseconds = 500;
   var timeoutId = -1;
 
   /**

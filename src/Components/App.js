@@ -41,6 +41,10 @@ export default class App extends Component {
   }
 
   render() {
+    const h2Style = {
+      "text-align": "center"
+    };
+
     try {
       var width = 700,
         height = 350,
@@ -86,6 +90,11 @@ export default class App extends Component {
         console.log(" server data points = ", this.state.data);
         return (
           <div>
+            <Row>
+              <Col xs>
+                <h2 style={h2Style}>Realtime Dashboards</h2>
+              </Col>
+            </Row>
             <Row>
               <Col xs>
                 <LineChart
